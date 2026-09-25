@@ -1,0 +1,28 @@
+# Python cache and local env files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+.env
+.env.local
+.env.*
+
+# VS Code / editor
+.vscode/
+*.swp
+*.swo
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Keep output queue used by the API
+!output/
+!output/*.json
+!output/*.csv

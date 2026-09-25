@@ -1,0 +1,81 @@
+[
+  {
+    "search_term": "software engineer",
+    "location": "India",
+    "days": 30,
+    "total_jobs": 200,
+    "sources": {
+      "indeed": 100,
+      "linkedin": 100
+    },
+    "sample_jobs": [
+      {
+        "title": "RPA Developer",
+        "company": "LanceTech Solutions Pvt Ltd",
+        "location": "HR, IN",
+        "salary": "Not specified",
+        "tags": "fulltime",
+        "posted_date": "2026-09-26",
+        "source": "indeed",
+        "link": "https://in.indeed.com/viewjob?jk=bdea5e5ec059d17e",
+        "scraped_at": "2026-09-25T22:05:36Z",
+        "confidence_score": 70,
+        "credibility_score": 70
+      },
+      {
+        "title": "Senior Software Engineer",
+        "company": "Optum India",
+        "location": "Gurgaon, Haryana, India",
+        "salary": "Not specified",
+        "tags": "fulltime, mid-senior level, Engineering and Information Technology, IT Services and IT Consulting",
+        "posted_date": "Not specified",
+        "source": "linkedin",
+        "link": "https://www.linkedin.com/jobs/view/4472043246",
+        "scraped_at": "2026-09-25T22:05:36Z",
+        "confidence_score": 80,
+        "credibility_score": 80
+      },
+      {
+        "title": "Oracle Developer",
+        "company": "Unknown",
+        "location": "CH, IN",
+        "salary": "Not specified",
+        "tags": "fulltime",
+        "posted_date": "2026-09-26",
+        "source": "indeed",
+        "link": "https://in.indeed.com/viewjob?jk=adc36f1f43321831",
+        "scraped_at": "2026-09-25T22:05:36Z",
+        "confidence_score": 69,
+        "credibility_score": 69
+      },
+      {
+        "title": "Cloud Native Full stack Java Developer",
+        "company": "SAP Fioneer",
+        "location": "Pune Division, Maharashtra, India",
+        "salary": "Not specified",
+        "tags": "fulltime, mid-senior level, Information Technology, Non-profit Organizations and Primary and Secondary Education",
+        "posted_date": "Not specified",
+        "source": "linkedin",
+        "link": "https://www.linkedin.com/jobs/view/4470092697",
+        "scraped_at": "2026-09-25T22:05:36Z",
+        "confidence_score": 88,
+        "credibility_score": 88
+      },
+      {
+        "title": "Senior Embedded Software Engineer (Modern C++)",
+        "company": "SANSID SOLUTIONS LLP",
+        "location": "TS, IN",
+        "salary": "Not specified",
+        "tags": "fulltime",
+        "posted_date": "2026-09-26",
+        "source": "indeed",
+        "link": "https://in.indeed.com/viewjob?jk=76734f494cbaa631",
+        "scraped_at": "2026-09-25T22:05:36Z",
+        "confidence_score": 81,
+        "credibility_score": 81
+      }
+    ],
+    "confidence_score": 79,
+    "credibility_score": 79
+  }
+]

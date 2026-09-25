@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: web-parsing-job-alerts
+    runtime: python
+    plan: free
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: cd notification-service && uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/notifications/health
+    envVars:
+      - key: PYTHONPATH
+        value: /opt/render/project/src/notification-service
