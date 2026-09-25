@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
 from models.notification import (
@@ -197,6 +197,47 @@ app = FastAPI(
     description="Telegram and WhatsApp Notification Service",
     version="1.0.0"
 )
+
+
+@app.middleware("http")
+async def normalize_human_handles(request: Request, call_next):
+    if request.method in {"POST", "PUT", "PATCH"} and request.url.path in {
+        "/api/notifications/send",
+        "/api/notifications/send-jobs",
+    }:
+        try:
+            body = await request.body()
+            if not body:
+                return await call_next(request)
+
+            payload = json.loads(body)
+            if not isinstance(payload, dict):
+                return await call_next(request)
+
+            if "channel" in payload and isinstance(payload["channel"], str):
+                payload["channel"] = payload["channel"].strip().lower()
+
+            recipient = payload.get("recipient")
+            handle = payload.get("handle")
+            if isinstance(handle, str) and (recipient is None or str(recipient).strip() == ""):
+                payload["recipient"] = handle.strip()
+
+            if isinstance(recipient, str):
+                payload["recipient"] = recipient.strip()
+
+            if isinstance(payload.get("recipient"), str):
+                value = payload["recipient"].strip()
+                if value.startswith("@"):
+                    payload["recipient"] = value
+                elif value:
+                    payload["recipient"] = value
+                print(f"[Middleware] normalized recipient={payload['recipient']}")
+
+            request._body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        except Exception:
+            pass
+
+    return await call_next(request)
 
 
 @app.get("/api/notifications/health")
