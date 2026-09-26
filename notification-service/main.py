@@ -17,6 +17,9 @@ from models.notification import (
     NotificationResponse
 )
 
+APP_DIR = Path(__file__).resolve().parent
+load_dotenv(APP_DIR / ".env")
+
 from services.telegram_service import TelegramService
 from services.whatsapp_service import WhatsAppService
 from services.notification_service import NotificationService
@@ -27,14 +30,10 @@ load_dotenv()
 
 
 # Read environment variables
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-
-WHATSAPP_ACCESS_TOKEN = os.getenv("WHATSAPP_ACCESS_TOKEN")
-WHATSAPP_PHONE_NUMBER_ID = os.getenv("WHATSAPP_PHONE_NUMBER_ID")
-WHATSAPP_GRAPH_API_VERSION = os.getenv(
-    "WHATSAPP_GRAPH_API_VERSION",
-    "v26.0"
-)
+TELEGRAM_BOT_TOKEN = (os.getenv("TELEGRAM_BOT_TOKEN") or "").strip()
+WHATSAPP_ACCESS_TOKEN = (os.getenv("WHATSAPP_ACCESS_TOKEN") or "").strip()
+WHATSAPP_PHONE_NUMBER_ID = (os.getenv("WHATSAPP_PHONE_NUMBER_ID") or "").strip()
+WHATSAPP_GRAPH_API_VERSION = (os.getenv("WHATSAPP_GRAPH_API_VERSION", "v26.0") or "v26.0").strip()
 
 
 # Validate configuration
